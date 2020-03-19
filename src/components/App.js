@@ -3,7 +3,7 @@ import "./App.scss";
 import Header from "./Header";
 import Movie from "./Movies";
 import Search from "./Search";
-
+//API url key
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
 
 const initialState = {
