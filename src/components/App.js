@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import "./App.scss";
+import "./LeftContainer.css";
 import Header from "./Header";
 import Movie from "./Movies";
 import Search from "./Search";
@@ -60,7 +61,7 @@ const App = () => {
       type: "SEARCH_MOVIES_REQUEST"
     });
 
-    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=d30f3fe5`)
       .then(response => response.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
@@ -82,18 +83,27 @@ const App = () => {
   return (
     <div className="App">
       <Header text="HOOKED" />
-      <Search search={search} />
       <p className="App-intro">Sharing a few of our favourite movies</p>
-      <div className="movies">
-        {loading && !errorMessage ? (
-          <span>loading...</span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
-        )}
+      <div className="movie-container">
+        {" "}
+        {/*<-- info adde */}
+        <Search search={search} />
+        <div className="movie-container">
+          <div className="card-container">
+            <div className="movies">
+              {loading && !errorMessage ? (
+                <span>loading...</span>
+              ) : errorMessage ? (
+                <div className="errorMessage">{errorMessage}</div>
+              ) : (
+                movies.map((movie, index) => (
+                  <Movie key={`${index}-${movie.Title}`} movie={movie} />
+                ))
+              )}
+            </div>
+          </div>
+          {/* end card container  */}
+        </div>
       </div>
     </div>
   );
