@@ -4,8 +4,9 @@ import "./LeftContainer.css";
 import Header from "./Header";
 import Movie from "./Movies";
 import Search from "./Search";
+
 //API url key
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=d30f3fe5";
 
 const initialState = {
   loading: true,
@@ -81,9 +82,9 @@ const App = () => {
   const { movies, errorMessage, loading } = state;
 
   return (
-    <div className="App">
+    <div className="">
       <Header text="HOOKED" />
-      <p className="App-intro">Sharing a few of our favourite movies</p>
+      <p className="title">Sharing a few of our favourite movies</p>
       <div className="movie-container">
         {" "}
         {/*<-- info adde */}
